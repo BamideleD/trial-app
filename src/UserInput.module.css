@@ -1,0 +1,31 @@
+.overall{
+    background-color: white;
+    margin: 40px;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+
+}
+
+label {
+    padding-bottom:5px;
+    padding-top: 5px;
+}
+
+input {
+    width: 400px;
+}
+
+button {
+    margin-top: 10px;
+    width:100px;
+    padding: 4px;
+    color: white;
+    background-color: purple;
+    border: 0px;
+}
