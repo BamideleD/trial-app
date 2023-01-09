@@ -28,14 +28,23 @@ const App = () => {
       age: age
   }
 
-  const [fullUser, setFullUser] = useState('')
+  const [fullUser, setFullUser] = useState([])
 
   const submitHandler = (event) => {
       event.preventDefault();
-      setFullUser(eggshells)
+
+      if (eggshells.user.length === 0){
+        return ({})
+    }
+    
+    else setFullUser([...fullUser, eggshells])
+
+
+
       
   }
 
+   
 
 
   
