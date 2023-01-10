@@ -1,14 +1,15 @@
 import React from "react";
 import styles from './UserOutput.module.css';
+import { useState } from "react";
+import SingleUser from "./SingleUser";
 
 
 
 const UserOutput = (props) => {
 
     console.log(props.submitUser);
- 
-    
 
+   
     
   
 
@@ -18,10 +19,7 @@ const UserOutput = (props) => {
 
         {props.submitUser.map((data) => {
             return (
-                <div className={styles.output}>
-                    <div className = {styles.user}>{data.user}</div>
-                    <div>({data.age} years old)</div>
-                </div>
+                    <SingleUser data = {data}/>
             )
         }
         )}
