@@ -18,9 +18,9 @@ const UserOutput = (props) => {
 
         {props.submitUser.map((data) => {
             return (
-                <div>
-                    <div>{data.user}</div>
-                    <div>{data.age}</div>
+                <div className={styles.output}>
+                    <div className = {styles.user}>{data.user}</div>
+                    <div>({data.age} years old)</div>
                 </div>
             )
         }
