@@ -65,6 +65,10 @@ const App = () => {
       
   }
 
+  const closePortal = () => {
+    setError (null)
+  }
+
 
   
 
@@ -79,7 +83,7 @@ const App = () => {
   return (
     <div className= {styles.app}>
       <div className={styles.app2}>
-        {error && <Alert title = {error.title} message = {error.message}/>}
+        {error && <Alert closePortal = {closePortal} title = {error.title} message = {error.message}/>}
       </div>
       
       <div className= {styles.app1}>
