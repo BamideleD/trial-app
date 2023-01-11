@@ -4,6 +4,10 @@ import styles from './Alert.module.css'
 
 const Alert = (props) => {
 
+
+    const closePortal = () => {
+        
+    }
     
 
     return (
@@ -16,7 +20,7 @@ const Alert = (props) => {
                     <p>{props.message}</p>
                 </div>
                 <footer>
-                    <button> Okay </button>
+                    <button onClick={closePortal}> Okay </button>
                 </footer>
             </div>  
         </div>

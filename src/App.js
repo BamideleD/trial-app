@@ -14,6 +14,7 @@ const App = () => {
 
   const[user, setUser]= useState('')
   const[age, setAge] = useState('')
+  const[error, setError] = useState()
 
   
   const userChange = (event) => {
@@ -39,9 +40,22 @@ const App = () => {
 
         return (
 
-              {}
+              setError({
+                title: 'Invalid Input',
+                message : 'Please enter a valid name and age (non-empty values)'
+              })
           
         )
+    }
+
+    if (eggshells.age < 1){
+
+      return (
+        setError({
+          title: 'Invalid Age',
+          message : 'Please enter a valid age (> 0)'
+        })
+      )
     }
     
     else setFullUser([...fullUser, eggshells])
@@ -51,8 +65,7 @@ const App = () => {
       
   }
 
-  const title = 'Invalid Input'
-  const message = 'Please enter a valid name and age (non-empty values)'
+
   
 
    
@@ -66,7 +79,7 @@ const App = () => {
   return (
     <div className= {styles.app}>
       <div className={styles.app2}>
-        <Alert title = {title} message = {message}/>
+        {error && <Alert title = {error.title} message = {error.message}/>}
       </div>
       
       <div className= {styles.app1}>
