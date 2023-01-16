@@ -17,9 +17,9 @@ const UserInput = (props) => {
         <div className = {styles.overall} >
             <form  className= {styles.form}>
                 <label> Username </label>
-                <input type = 'text' value={props.user} onChange = {props.userChange} />
+                <input type = 'text' ref = {props.nameInputRef}/>
                 <label> Age (Years)  </label>
-                <input type = 'number' value={props.age} onChange = {props.ageChange} />
+                <input type = 'number' ref = {props.ageInputRef} />
                 <button type = 'submit' onClick={props.submitHandler}> Add User </button>
             </form>
         </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import UserInput from './UserInput';
 import UserOutput from './UserOutput';
 import styles from './App.module.css';
@@ -11,30 +11,30 @@ import Alert from "./Alert";
 
 const App = () => {
 
+
+ const nameInputRef = useRef();
+ const ageInputRef = useRef();
+
  
-  const[user, setUser]= useState('')
-  const[age, setAge] = useState('')
+  
   const[error, setError] = useState()
 
   
-  const userChange = (event) => {
-      setUser(event.target.value)
-  }
 
-  const ageChange = (event) => {
-      setAge(event.target.value)
-  }
-
-  const eggshells = {
-      user : user,
-      age: age,
-      key: Math.random()
-  }
 
   const [fullUser, setFullUser] = useState([])
 
   const submitHandler = (event) => {
       event.preventDefault();
+      const user = nameInputRef.current.value
+      const age = ageInputRef.current.value
+
+      
+    const eggshells = {
+      user : user,
+      age: age,
+      key: Math.random()
+  }
 
       if (eggshells.user.length === 0 && eggshells.age.length === 0){
 
@@ -60,6 +60,9 @@ const App = () => {
     
     else setFullUser([...fullUser, eggshells])
 
+    nameInputRef.current.value = '';
+    ageInputRef.current.value = '';
+
 
 
       
@@ -84,7 +87,7 @@ const App = () => {
     <React.Fragment>
         {error && <Alert closePortal = {closePortal} title = {error.title} message = {error.message}/>}
       <div className= {styles.app1}>
-        <UserInput submitHandler = {submitHandler} user = {user} age = {age} userChange = {userChange} ageChange = {ageChange} />
+        <UserInput submitHandler = {submitHandler}  nameInputRef = {nameInputRef} ageInputRef = {ageInputRef} />
         <UserOutput submitUser = {fullUser} />
       </div>
       
