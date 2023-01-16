@@ -11,7 +11,7 @@ import Alert from "./Alert";
 
 const App = () => {
 
-
+ 
   const[user, setUser]= useState('')
   const[age, setAge] = useState('')
   const[error, setError] = useState()
@@ -81,17 +81,14 @@ const App = () => {
 
 
   return (
-    <div className= {styles.app}>
-      <div className={styles.app2}>
+    <React.Fragment>
         {error && <Alert closePortal = {closePortal} title = {error.title} message = {error.message}/>}
-      </div>
-      
       <div className= {styles.app1}>
         <UserInput submitHandler = {submitHandler} user = {user} age = {age} userChange = {userChange} ageChange = {ageChange} />
         <UserOutput submitUser = {fullUser} />
       </div>
       
-    </div>
+    </React.Fragment>
     
   )
 }
