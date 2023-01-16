@@ -1,27 +1,27 @@
 import React from "react";
-import styles from './Alert.module.css'
-
+import ReactDOM from "react-dom";
+import Backdrop from "./Backdrop";
+import Modal from "./Modal"
 
 const Alert = (props) => {
 
 
-    
+    const closePortal = props.closePortal
+    const title = props.title
+    const message = props.message
     
 
-    return (
-        <div className={styles.backdrop} onClick={props.closePortal}>
-            <div className={styles.overall}>
-                <header>
-                    <h2>{props.title}</h2>
-                </header>
-                <div>
-                    <p>{props.message}</p>
-                </div>
-                <footer>
-                    <button onClick={props.closePortal}> Okay </button>
-                </footer>
-            </div>  
-        </div>
+    return ( 
+        <React.Fragment>
+            {ReactDOM.createPortal(
+               <Backdrop closePortal = {closePortal} />,
+               document.getElementById("backdrop-root") 
+            )}
+            {ReactDOM.createPortal(
+               <Modal closePortal = {closePortal} title = {title} message = {message} />,
+               document.getElementById("modal-root") 
+            )}   
+        </React.Fragment>
     )
 }
 
